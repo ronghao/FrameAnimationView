@@ -1,4 +1,4 @@
-# FrameAnimationView
+# [FrameAnimationView](https://github.com/ronghao/FrameAnimationView) [![](https://jitpack.io/v/ronghao/FrameAnimationView.svg)](https://jitpack.io/#ronghao/FrameAnimationView) [![](https://travis-ci.org/ronghao/FrameAnimationView.svg?branch=master)](https://travis-ci.org/ronghao/FrameAnimationView)  [![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://raw.githubusercontent.com/ronghao/CacheManage/master/LICENSE) [ ![Download](https://api.bintray.com/packages/haohao/maven/FrameAnimationView/images/download.svg?version=1.0.0) ](https://bintray.com/haohao/maven/FrameAnimationView/1.0.0/link)
 
 > 优化帧动画加载的内存占用、解决帧动画销毁内存不释放的问题
 
@@ -22,6 +22,8 @@
 + 使用FrameAnimView控件，继承RecyclingImageView
 	+ FrameAnimView:animSrc="@drawable/anim_loading"
 + 自定义RecyclingImageView控件
+	+ 参见MyFrameAnimView
+
 
 # 项目添加方法
 在根 build.gradle中添加
