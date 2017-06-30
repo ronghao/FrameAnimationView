@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:FrameAnimView="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.haohaohu.frameanimationviewsample.MainActivity">
+
+    <TextView
+        android:id="@+id/main_btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="开启自定义FrameAnimView" />
+
+    <TextView
+        android:id="@+id/main_btn3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/main_btn1"
+        android:layout_centerHorizontal="true"
+        android:text="关闭自定义FrameAnimView" />
+
+
+    <TextView
+        android:id="@+id/main_btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/main_btn3"
+        android:layout_centerHorizontal="true"
+        android:text="开启常规动画" />
+
+    <TextView
+        android:id="@+id/main_btn4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/main_btn2"
+        android:layout_centerHorizontal="true"
+        android:text="关闭常规动画" />
+
+    <TextView
+        android:id="@+id/main_btn5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/main_btn4"
+        android:layout_centerHorizontal="true"
+        android:text="开启FrameAnimView" />
+
+    <TextView
+        android:id="@+id/main_btn6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/main_btn5"
+        android:layout_centerHorizontal="true"
+        android:text="关闭FrameAnimView" />
+
+    <com.haohaohu.frameanimationviewsample.MyFrameAnimView
+        android:id="@+id/main_animview"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true" />
+
+    <ImageView
+        android:id="@+id/main_animview1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true" />
+
+    <com.haohaohu.frameanimview.FrameAnimView
+        android:id="@+id/main_animview2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        FrameAnimView:animSrc="@drawable/anim_loading" />
+
+
+</RelativeLayout>
