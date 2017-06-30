@@ -8,7 +8,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RawRes;
-import android.util.Log;
 
 import static android.graphics.BitmapFactory.decodeStream;
 
@@ -34,7 +33,6 @@ public class BitmapLoadUtil {
         String resourceName = resources.getResourceName(resId);
         bitmapFromCache = cache.getBitmapFromCache(resourceName);
         if (bitmapFromCache == null) {
-            Log.e("log", "uncatch");
             bitmapFromCache = readBitmapFromRes(resources, resId, cache, options);
             cache.addBitmapToCache(resourceName, bitmapFromCache);
         }
