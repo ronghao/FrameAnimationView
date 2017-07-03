@@ -7,10 +7,10 @@
 + 帧动画停止后无法回收内存
 
 ### 默认帧动画
-![](pic/moren.jpg)
+![](http://ogs5lou4u.bkt.clouddn.com/haohaohu_FrameAnimationView_moren.jpg)
 
 ### 使用FrameAnimationView加载同样动画
-![](pic/FrameAnimationView.jpg)
+![](http://ogs5lou4u.bkt.clouddn.com/haohaohu_FrameAnimationView_1.jpg)
 
 ### 加载原理
 + 每次只加载接下来要展示的图片
