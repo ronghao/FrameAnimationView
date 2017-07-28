@@ -37,7 +37,7 @@
 在项目build.gradle中添加
 
 	dependencies {
-	    compile 'com.github.ronghao:FrameAnimationView:1.0.0'
+	    compile 'com.github.ronghao:FrameAnimationView:1.0.1'
 	}
 
 
