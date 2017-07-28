@@ -1,11 +1,13 @@
 package com.haohaohu.frameanimationviewsample;
 
 import android.content.Context;
+import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 
 import com.haohaohu.frameanimationview.R;
 import com.haohaohu.frameanimview.FrameAnimView;
 import com.haohaohu.frameanimview.FrameAnimation;
+import com.haohaohu.frameanimview.OnImageLoadListener;
 
 /**
  * 帧动画view
@@ -49,5 +51,16 @@ public class MyFrameAnimView extends FrameAnimView {
                 .setResIds(res)
                 .setDuration(100)
                 .build();
+        mAnimation.setOnImageLoadListener(new OnImageLoadListener() {
+            @Override
+            public void onImageLoad(BitmapDrawable drawable) {
+                MyFrameAnimView.this.setImageDrawable(drawable);
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        });
     }
 }
