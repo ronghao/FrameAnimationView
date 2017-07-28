@@ -57,6 +57,14 @@ public class FrameAnimation {
         this.resIds = resIds;
     }
 
+    public void setLoop(boolean loop) {
+        this.loop = loop;
+    }
+
+    public void setDuration(float duration) {
+        this.duration = duration;
+    }
+
     public void start() {
         if (isRunning) {
             return;

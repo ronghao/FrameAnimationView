@@ -1,13 +1,11 @@
 package com.haohaohu.frameanimationviewsample;
 
 import android.content.Context;
-import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 
 import com.haohaohu.frameanimationview.R;
+import com.haohaohu.frameanimview.FrameAnimView;
 import com.haohaohu.frameanimview.FrameAnimation;
-import com.haohaohu.frameanimview.OnImageLoadListener;
-import com.haohaohu.frameanimview.RecyclingImageView;
 
 /**
  * 帧动画view
@@ -15,9 +13,8 @@ import com.haohaohu.frameanimview.RecyclingImageView;
  * @author haohao on 2017/6/27 13:43
  * @version v1.0
  */
-public class MyFrameAnimView extends RecyclingImageView {
+public class MyFrameAnimView extends FrameAnimView {
 
-    private FrameAnimation mAnimation;
 
     int[] res = {R.drawable.loading_00, R.drawable.loading_01, R.drawable.loading_02, R.drawable.loading_03,
             R.drawable.loading_04, R.drawable.loading_05, R.drawable.loading_06, R.drawable.loading_07,
@@ -50,40 +47,7 @@ public class MyFrameAnimView extends RecyclingImageView {
         mAnimation = new FrameAnimation.FrameAnimationBuilder(getResources())
                 .setLoop(true)
                 .setResIds(res)
-                .setDuration(50)
+                .setDuration(100)
                 .build();
-        mAnimation.setOnImageLoadListener(new OnImageLoadListener() {
-            @Override
-            public void onImageLoad(BitmapDrawable drawable) {
-                MyFrameAnimView.this.setImageDrawable(drawable);
-            }
-
-            @Override
-            public void onFinish() {
-
-            }
-        });
-    }
-
-    public void setImageSrcs(int[] res) {
-        mAnimation.setResIds(res);
-    }
-
-    public void start() {
-        if (mAnimation != null) {
-            mAnimation.start();
-        }
-    }
-
-    public void pause() {
-        if (mAnimation != null) {
-            mAnimation.pause();
-        }
-    }
-
-    public void stop() {
-        if (mAnimation != null) {
-            mAnimation.stop();
-        }
     }
 }

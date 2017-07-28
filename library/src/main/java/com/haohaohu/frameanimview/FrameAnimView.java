@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class FrameAnimView extends RecyclingImageView {
 
-    private FrameAnimation mAnimation;
+    protected FrameAnimation mAnimation;
     private List<Integer> mRes = new ArrayList<>();
     private int duration = (int) FrameAnimation.DEFAULT_DURATION;
     private boolean mLoop;
