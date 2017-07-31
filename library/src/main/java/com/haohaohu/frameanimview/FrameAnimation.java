@@ -39,14 +39,16 @@ public class FrameAnimation {
     private boolean isRunning = false;
     private boolean needStop = false;
 
+
     private volatile int index = 0;//当前显示图片
     private ImageCache imageCache;
     private volatile BitmapDrawable bitmapDrawable;
     private OnImageLoadListener onImageLoadListener;
     private Resources resources;
 
-    FrameAnimation(Resources resources, int[] resIds, boolean loop, float duration) {
-        imageCache = new ImageCache();
+
+    FrameAnimation(Resources resources, int[] resIds, boolean loop, float duration, boolean isLowMemory) {
+        imageCache = new ImageCache(isLowMemory);
         this.resources = resources;
         this.resIds = resIds;
         this.loop = loop;
@@ -143,6 +145,7 @@ public class FrameAnimation {
         private float duration = DEFAULT_DURATION;//动画间隔时间
         private boolean loop = false;//是否循环
         private int[] resIds;//动画列表
+        private boolean isLowMemory;//低内存、少量图片时设置，防止图片不显示
 
         public FrameAnimationBuilder(@NonNull Resources resources) {
             this.resources = resources;
@@ -163,8 +166,15 @@ public class FrameAnimation {
             return this;
         }
 
-        public FrameAnimation build() {
-            return new FrameAnimation(resources, resIds, loop, duration);
+        public FrameAnimationBuilder isLowMemory(boolean isLowMemory) {
+            this.isLowMemory = isLowMemory;
+            return this;
         }
+
+        public FrameAnimation build() {
+            return new FrameAnimation(resources, resIds, loop, duration, isLowMemory);
+        }
+
+
     }
 }

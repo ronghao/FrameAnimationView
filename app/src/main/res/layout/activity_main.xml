@@ -60,23 +60,52 @@
         android:gravity="center"
         android:text="关闭FrameAnimView" />
 
+    <TextView
+        android:id="@+id/main_btn7"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@id/main_btn6"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="开启自定义FrameAnim2View" />
+
+    <TextView
+        android:id="@+id/main_btn8"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@id/main_btn7"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="关闭自定义FrameAnim2View" />
+
     <com.haohaohu.frameanimationviewsample.MyFrameAnimView
         android:id="@+id/main_animview"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_centerInParent="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <com.haohaohu.frameanimationviewsample.MyFrameAnim2View
+        android:id="@+id/main_animview3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary" />
 
     <ImageView
         android:id="@+id/main_animview1"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_centerInParent="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
     <com.haohaohu.frameanimview.FrameAnimView
         android:id="@+id/main_animview2"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         FrameAnimView:animSrc="@drawable/anim_loading" />
 
 

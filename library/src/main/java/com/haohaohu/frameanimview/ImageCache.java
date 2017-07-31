@@ -22,7 +22,7 @@ import java.util.Set;
  */
 public class ImageCache {
     // Default memory cache size in kilobytes
-    private static final int DEFAULT_MEM_CACHE_SIZE = 1024 * 5; // 5MB
+    private static final int DEFAULT_MEM_CACHE_SIZE = 10; // 5MB
 
     final Set<SoftReference<Bitmap>> mReusableBitmaps;
     private LruCache<String, BitmapDrawable> mMemoryCache;
@@ -32,6 +32,43 @@ public class ImageCache {
                 Collections.synchronizedSet(new HashSet<SoftReference<Bitmap>>());
 
         mMemoryCache = new LruCache<String, BitmapDrawable>(DEFAULT_MEM_CACHE_SIZE) {
+
+            /**
+             * Notify the removed entry that is no longer being cached
+             */
+            @Override
+            protected void entryRemoved(boolean evicted, String key,
+                                        BitmapDrawable oldValue, BitmapDrawable newValue) {
+                if (RecyclingBitmapDrawable.class.isInstance(oldValue)) {
+                    // The removed entry is a recycling drawable, so notify it
+                    // that it has been removed from the memory cache
+                    ((RecyclingBitmapDrawable) oldValue).setIsCached(false);
+                } else {
+                    // The removed entry is a standard BitmapDrawable
+
+                    // We're running on Honeycomb or later, so add the bitmap
+                    // to a SoftReference set for possible use with inBitmap later
+                    mReusableBitmaps.add(new SoftReference<>(oldValue.getBitmap()));
+                }
+            }
+
+            /**
+             * Measure item size in kilobytes rather than units which is more practical
+             * for a bitmap cache
+             */
+            @Override
+            protected int sizeOf(String key, BitmapDrawable value) {
+                final int bitmapSize = getBitmapSize(value) / 1024;
+                return bitmapSize == 0 ? 1 : bitmapSize;
+            }
+        };
+    }
+
+    ImageCache(boolean isLowMemory) {
+        mReusableBitmaps =
+                Collections.synchronizedSet(new HashSet<SoftReference<Bitmap>>());
+
+        mMemoryCache = new LruCache<String, BitmapDrawable>(isLowMemory ? 32 : DEFAULT_MEM_CACHE_SIZE) {
 
             /**
              * Notify the removed entry that is no longer being cached
@@ -170,7 +207,7 @@ public class ImageCache {
         mMemoryCache.put(filename, bitmapFromCache);
     }
 
-    public void destory(){
+    public void destory() {
         mReusableBitmaps.clear();
         mMemoryCache.evictAll();
     }

@@ -17,8 +17,10 @@ import java.util.TimerTask;
 public class MainActivity extends AppCompatActivity {
 
     private MyFrameAnimView animView;//自定义FrameAnimView
+    private MyFrameAnim2View animView3;//自定义FrameAnimView
     private AnimationDrawable animationDrawable;//常规动画
     private FrameAnimView frameAnimView;//FrameAnimView
+    private ImageView image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,11 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.main_btn1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                animView.setVisibility(View.VISIBLE);
+                animView3.setVisibility(View.INVISIBLE);
+                frameAnimView.setVisibility(View.INVISIBLE);
+                image.setVisibility(View.INVISIBLE);
+
                 if (animView != null) {
                     animView.start();
                 }
@@ -41,6 +48,12 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.main_btn2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                animView.setVisibility(View.VISIBLE);
+                animView3.setVisibility(View.INVISIBLE);
+                frameAnimView.setVisibility(View.INVISIBLE);
+                image.setVisibility(View.INVISIBLE);
+
                 if (animView != null) {
                     animView.stop();
                 }
@@ -50,7 +63,11 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.main_btn3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ImageView image = (ImageView) findViewById(R.id.main_animview1);
+                animView.setVisibility(View.INVISIBLE);
+                animView3.setVisibility(View.INVISIBLE);
+                frameAnimView.setVisibility(View.INVISIBLE);
+                image.setVisibility(View.VISIBLE);
+
                 image.setImageResource(R.drawable.anim_loading);
                 animationDrawable = (AnimationDrawable) image.getDrawable();
                 animationDrawable.start();
@@ -60,6 +77,11 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.main_btn4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                animView.setVisibility(View.INVISIBLE);
+                animView3.setVisibility(View.INVISIBLE);
+                frameAnimView.setVisibility(View.INVISIBLE);
+                image.setVisibility(View.VISIBLE);
+
                 if (animationDrawable != null) {
                     animationDrawable.stop();
                 }
@@ -69,6 +91,11 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.main_btn5).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                animView.setVisibility(View.INVISIBLE);
+                animView3.setVisibility(View.INVISIBLE);
+                frameAnimView.setVisibility(View.VISIBLE);
+                image.setVisibility(View.INVISIBLE);
+
                 if (frameAnimView != null) {
                     frameAnimView.start();
                 }
@@ -78,13 +105,50 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.main_btn6).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                animView.setVisibility(View.INVISIBLE);
+                animView3.setVisibility(View.INVISIBLE);
+                frameAnimView.setVisibility(View.VISIBLE);
+                image.setVisibility(View.INVISIBLE);
+
                 if (frameAnimView != null) {
                     frameAnimView.stop();
                 }
             }
         });
+
+        findViewById(R.id.main_btn7).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                animView.setVisibility(View.INVISIBLE);
+                animView3.setVisibility(View.VISIBLE);
+                frameAnimView.setVisibility(View.INVISIBLE);
+                image.setVisibility(View.INVISIBLE);
+
+                if (animView3 != null) {
+                    animView3.start();
+                }
+            }
+        });
+
+        findViewById(R.id.main_btn8).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                animView.setVisibility(View.INVISIBLE);
+                animView3.setVisibility(View.VISIBLE);
+                frameAnimView.setVisibility(View.INVISIBLE);
+                image.setVisibility(View.INVISIBLE);
+
+                if (animView3 != null) {
+                    animView3.stop();
+                }
+            }
+        });
         animView = (MyFrameAnimView) findViewById(R.id.main_animview);
+        animView3 = (MyFrameAnim2View) findViewById(R.id.main_animview3);
         frameAnimView = (FrameAnimView) findViewById(R.id.main_animview2);
+        image = (ImageView) findViewById(R.id.main_animview1);
 
     }
 

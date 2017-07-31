@@ -36,6 +36,7 @@ public class BitmapLoadUtil {
             bitmapFromCache = readBitmapFromRes(resources, resId, cache, options);
             cache.addBitmapToCache(resourceName, bitmapFromCache);
         }
+
         return bitmapFromCache;
     }
 
