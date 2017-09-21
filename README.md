@@ -37,9 +37,18 @@
 在项目build.gradle中添加
 
 	dependencies {
-	    compile 'com.github.ronghao:FrameAnimationView:1.0.1'
+	    compile 'com.github.ronghao:FrameAnimationView:1.0.2'
 	}
+版本号参见![](https://jitpack.io/v/ronghao/FrameAnimationView.svg)
 
+
+# 使用
+    <com.haohaohu.frameanimview.FrameAnimView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        FrameAnimView:animSrc="@drawable/anim_loading" />
 
 # 关于
 + 个人博客：[www.haohaohu.com](http://www.haohaohu.com/)
